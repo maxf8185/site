@@ -32,7 +32,6 @@ def home():
 def posts():
     return render_template('posts.html')
 
-
 if __name__ == '__main__':
     app.run(debug=True)
 
