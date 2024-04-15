@@ -3,13 +3,13 @@
 {% block content %}
 <h1 class="container mb-5">Test name: {{ test }}</h1>
 
-{% for student in students %}
+{% for film in films %}
 <div class="card container mb-3">
-    <h5 class="card-header">ID: {{ student.id }}</h5>
+    <h5 class="card-header">ID: {{ film.id }}</h5>
     <div class="card-body">
-        <h5 class="card-title">NAME: {{ student.name }}</h5>
-        <p class="card-text">SCORE: {{ student.score }}</p>
-        <a href="{{ url_for('student', id=student.id) }}" class="btn btn-primary">Details</a>
+        <h5 class="card-title">NAME: {{ film.name }}</h5>
+        <p class="card-text">SCORE: {{ film.score }}</p>
+        <a href="{{ url_for('film', id=film.id) }}" class="btn btn-primary">Details</a>
     </div>
 </div>
 {% endfor %}

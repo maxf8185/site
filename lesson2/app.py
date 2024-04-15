@@ -3,12 +3,12 @@ from flask import Flask, render_template, url_for, redirect, abort
 app = Flask(__name__)
 
 test_name = 'Flask'
-max_score = 10
-students = [
+max_score = 20
+films = [
     {'id': 1, 'name': 'Cars', 'score': 10},
-    {'id': 2, 'name': 'Fishes', 'score': 8},
-    {'id': 3, 'name': 'Racing_at_night', 'score': 6},
-    {'id': 4, 'name': 'Ladies', 'score': 5},
+    {'id': 2, 'name': 'Fighting', 'score': 20},
+    {'id': 3, 'name': 'Football story', 'score': 5},
+    {'id': 4, 'name': 'Believing', 'score': 15},
 ]
 
 
@@ -16,8 +16,8 @@ students = [
 def home():
     context = {
         'title': 'Films',
-        'films': students,
-        'viewers': max_score,
+        'films': films,
+        'max_score': max_score,
         'test': test_name
     }
     return render_template('index.html', **context)
@@ -28,13 +28,13 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/film/<int:id>')
+@app.route('/student/<int:id>')
 def film(id):
-    if id > len(students):
+    if id > len(films):
         return redirect(url_for('home'))
     elif id == 4:
         abort(403)
-    return render_template('detail.html', films=students[id-1])
+    return render_template('detail.html', film=films[id-1])
 
 
 @app.errorhandler(404)
