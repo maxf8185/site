@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% import 'macros.html' as macros %}
+<h1 class="container mb-5">Test name: {{ test }}</h1>
+
+{% for book in books %}
+{{ macros.book_card(book) }}
+{% endfor %}
+{% endblock %}

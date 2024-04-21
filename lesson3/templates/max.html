@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="container mb-5">This is detailed page about book</h1>
+{% set book = books|max(attribute='pages') %}
+<div class="card container mb-3">
+    <h5 class="card-header">ID: {{ book.id }}</h5>
+    <div class="card-body">
+        <h5 class="card-title">NAME: {{ book.name }}</h5>
+        <p class="card-text">PAGES: {{ book.pages }}</p>
+    </div>
+</div>
+
+<h1 class="container mb-5">SUM LENGTH ETC.</h1>
+<h3 class="container mb-5">SUM: {{ books|sum(attribute='pages') }}</h3>
+<h3 class="container mb-5">LENGTH: {{ books|length }}</h3>
+<h3 class="container mb-5">mid pages: {{ books|sum(attribute='pages')/books|length }}</h3>
+{% endblock %}

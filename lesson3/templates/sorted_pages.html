@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% import 'macros.html' as macros %}
+
+{% for book in books|sort(attribute='score', reverse=True) %}
+{{ macros.book_card(book) }}
+{% endfor %}
+
+{% endblock %}
